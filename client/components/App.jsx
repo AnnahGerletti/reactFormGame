@@ -1,10 +1,13 @@
 import React from 'react'
+import NewForm from './NewForm'
 
 const App = () => {
   return (
-    <h1>React development has begun!</h1>
+    <div className = 'container'>
+        <h1>The React Form Game </h1>
+        <NewForm />
+    </div>
   )
 }
 
 export default App
-
