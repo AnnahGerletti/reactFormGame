@@ -1,5 +1,4 @@
 import React from 'react'
-// import NewForm from './NewForm'
 import SimpleForm from './SimpleForm'
 import Header from './Header'
 import Footer from './Footer'
@@ -24,5 +23,3 @@ const App = () => {
 }
 
 export default App
-
-  // <Footer />
