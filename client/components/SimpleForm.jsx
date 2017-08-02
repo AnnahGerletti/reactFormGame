@@ -5,22 +5,72 @@ export default class SimpleForm extends React.Component {
   constructor(props) {
     super()
     this.state = {
-      answers: {}
+      questions: questions,
+      results: {
+        userOne:{},
+        userTwo:{}
+      },
+      currentStage: "userOne"
     }
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateAnswer = this.updateAnswer.bind(this);
   }
 
   handleSubmit(e) {
-    this.props.sendResults(this.state.answers)
+    e.preventDefault();
+    this.setState({currentStage:"userTwo"})
+    console.log(JSON.stringify(this.state.results))
+
   }
+
+  updateAnswer(e) {
+    let updateResults = this.state.results
+    updateResults[this.state.currentStage][e.target.name]=e.target.value
+    this.setState({results:updateResults})
+    }
+
 
   render() {
-    return (<div>
-      SimpleForm
-      <button onClick={this.handleSubmit.bind(this)}>Submit</button>
-    </div>)
-  }
+    {if (this.state.currentStage == 'userOne' || 'userTwo') {
+      return (
+          <form onSubmit={this.handleSubmit}>
+              {this.state.questions.map((question, index) => {
+                return(
+              <div key={index}>
+                  <p className="formQuestions">{question.text}</p>
+                  <select name={index} onChange={(e) => this.updateAnswer(e)}>
+                    {question.option.map((answer,index) => {
+                      return(
+                      <option key={index} value={index} >{answer}</option>
+                      )
+                    })}
+                  </select>
+              </div>
+                )
+              })}
+              <hr />
+               <input className="submitButton" type="submit" value="Push Me"/>
+          </form>
+      )
 
+    }}
+
+  }
 }
-//figure out how to create two forms after player one hits submit the answers populate the object and the the simpleform is rendered again. Or have two forms with the first submit the form2 can be rendered. Then after the submit is clicked twice the results apear on a new page.
-//make simple form like new form, get it to populate the obj, send this.state.answers when submit is hit.
-//could also pull out answers and put them into thier own obj. 
+  // render() {
+  //   return (
+  //     <form className = "form">
+  //       {this.state.questions.map((question, id) => {
+  //         return(
+  //           <div key={index}>
+  //             <p className = "formQuestions">{question.text}</p>
+  //             <select name={id} onchange={(e) =>
+  //
+  //
+  //             <button onClick={this.handleSubmit.bind(this)}>Submit</button>
+  //             </div>
+  //         )
+  //       })}
+  //         </form>
+  //     )
+  // }
