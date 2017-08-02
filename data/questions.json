@@ -1,0 +1,27 @@
+[
+  {
+    "text": "Which object is useless in Wellington?",
+    "option":["","Sun Glasses", "Gum Boots", "Umbrella"],
+    "correct": 3
+  },
+  {
+    "text": "Did Elijah Wood Urinate in the Bucket Fountain?",
+    "option":["", "True", "False"],
+    "correct": 1
+  },
+  {
+    "text": "The Bucket Fountain can be found on which street?",
+    "option":["", "Cuba st", "Manners st", "Coutney pl"],
+    "correct": 1
+  },
+  {
+    "text": "Finish this sentence, 'You can't beat Wellington?'",
+    "option":["", "on a summers day.", "on a rainy day.", "on a good day.", "on a windy day."],
+    "correct": 3
+  },
+  {
+    "text": "Wellington is renowned for its?",
+    "option":["", "Coffee Culture", "Craft Beer", "Tech Industry", "Funcky Night Life", "All of the Above"],
+    "correct": 5
+  }
+]
