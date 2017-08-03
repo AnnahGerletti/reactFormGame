@@ -2,6 +2,7 @@ import React from 'react'
 import SimpleForm from './SimpleForm'
 import Header from './Header'
 import Footer from './Footer'
+import NavBar from './NavBar'
 
 
 function sendResults(answers) {
@@ -10,14 +11,15 @@ function sendResults(answers) {
 
 const App = () => {
   return (
-    <div className = 'container'>
+    <div className ='container'>
+      <div className='navBar'>
+        <NavBar />
+      </div>
+      <div className='questionForm'>
         <Header />
-        <h3>The React Form Game </h3>
         <SimpleForm sendResults={sendResults}/>
         <Footer />
-
-
-
+      </div>
     </div>
   )
 }

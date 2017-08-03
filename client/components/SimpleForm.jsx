@@ -56,7 +56,10 @@ export default class SimpleForm extends React.Component {
       return answers[question_idx] ? answers[question_idx] : ""
     }
     /* on render, draw the question form if currentStage is either userOne
-or userTwo.
+    or userTwo.
+
+    pullered out question <div> from the render and turned it into a component, make sure you include all the things the componet needs inside the render function.
+
 
 TODO:
   Not handling rendering the answer yet via an else. Refer to handleSubmit()
@@ -74,13 +77,41 @@ TODO:
                           />
                         ))}
                         <hr/>
-                        <input className="submitButton" type="submit"/>
+                        <input className="submitButton" type="submit" value="Push Me"/>
                     </form>
                 )
 
             }
             else{
-              return(<div>results</div>)
+              console.log(this.state.results);
+              console.log(this.state.questions);
+              return(
+                <div>
+                  <h2>Player Results</h2>
+                  <div>
+                    {this.state.questions.map((question, index) => {
+                      let userOneChoice = this.state.results.userOne[index]
+                      let userTwoChoice = this.state.results.userTwo[index]
+                      return (
+                        <div>
+                          <p className="resultQuestions">{question.text}</p>
+                          <p>
+                            Player One said: {question.option[userOneChoice]}
+                            {(question.correct == userOneChoice)
+                              ? '- ✓'
+                              : '- ✘'}
+                          </p>
+                          <p>
+                            Player Two said: {question.option[userTwoChoice]}
+                            {(question.correct == userTwoChoice)
+                              ? '- ✓'
+                              : '- ✘'}
+                          </p>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>)
 
             }
         }

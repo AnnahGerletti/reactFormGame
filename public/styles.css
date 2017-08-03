@@ -1,5 +1,29 @@
 * {
-  background-color: lightblue;
+  background-color:
   /*border: 1px solid black;*/
+}
 
+.header {
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+.footer {
+  margin-top: 4em;
+  text-align: center;
+}
+
+.formQuestions{
+  font-size: 15px;
+}
+
+.navBar {
+  width: 25%;
+  background-color: rgb(240,128,128);
+}
+
+.questionForm{
+  margin-left: 25%;
+  padding-bottom: 25%;
+  width: 75%;
 }
