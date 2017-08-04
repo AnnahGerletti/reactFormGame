@@ -1,4 +1,5 @@
 import React from 'react'
+import request from 'superagent'
 
 
 export default class AddGame extends React.Component {
@@ -19,8 +20,12 @@ export default class AddGame extends React.Component {
     }
     submitGame(e) {
         e.preventDefault()
-        console.log({e});
-        console.log("this is a new game", this.state.newGame);
+        request.post('http://localhost:3000/v1/games')
+        .send(this.state.newGame)
+        .end(function (err, res){
+          console.log(res.status)
+        })
+
     }
 
     //event functions go here.

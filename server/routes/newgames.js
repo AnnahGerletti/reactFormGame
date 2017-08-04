@@ -1,22 +1,21 @@
-var express = require('express')
-var router = express.Router()
+const express = require('express')
+const router = express.Router()
 
-var db = require('../db')
+const db = require('../db/db')
+const bodyParser = require('body-parser')
 
-router.get('/', function (req, res) {
-  res.json(db.getWidgets())
+router.use(bodyParser.json())
+
+router.post('/', function(req,res){
+
+  res.sendStatus(201)
+  console.log(req.body)
 })
 
-router.post('/', function (req, res) {
-  db.saveWidget(req.body)
-  res.sendStatus(200)
-})
-
-router.delete('/:id', function (req, res){
-  db.deleteWidget(req.params.id)
-  res.sendStatus(204)
+router.post('/:game_id/questions', (req, res) => {
+  db.addQuestion(req.body)
 })
 
 module.exports = router
 
-// dont use this one, express  routers charlotts web
+//express routes posts, get, delete
