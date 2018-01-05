@@ -5,8 +5,8 @@ const NavBar = () => {
   return(
     <div className = 'navBar'>
       <ul className = 'links'>
-        <li><Link to={'/SimpleForm'}>Game</Link></li>
         <li><Link to={'/Homepage'}>Home</Link></li>
+        <li><Link to={'/SimpleForm'}>Game</Link></li>
         <li><Link to={'/AddGame'}>Create New Game</Link></li>
       </ul>
     </div>

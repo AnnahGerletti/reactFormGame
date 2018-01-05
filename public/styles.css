@@ -1,6 +1,6 @@
 /*componates*/
 .container {
-  display:flex;
+  display: flex;
   flex-direction: row;
   /*border: 1px solid black;*/
 }
